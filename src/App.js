@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from 'react'
 function App() {
+
+const [nome, setNome] = useState('')
+const [senha, setSenha] = useState('')
+
+  function handleCSadastro(){
+      alert(`Nome: ${nome} \nE-mail: ${senha}`)
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+        <h1>Estados Hooks</h1>
+        <form onSubmit={handleCSadastro}>
+            <label>Nome: </label>
+            <input type="text"
+            value={nome}
+            onChange={ (e) =>setNome(e.target.value)}
+            /><br/>
+            <label>Senha: </label>
+            <input type="text"
+            value={senha}
+            onChange={(e) =>setSenha(e.target.value)}
+             /><br /><br />
+            <button type="submit">Enviar</button>
+        </form>
     </div>
   );
 }
